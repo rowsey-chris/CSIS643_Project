@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.csis643_rowsey_project.controller.LeadController">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" bottom="10"/>
+            </padding>
+            <Button text="Create Lead" onAction="#createLead"/>
+            <Button text="Update Lead" onAction="#openUpdateLeadForm"/>
+        </HBox>
+    </top>
+
+    <padding>
+        <Insets left="10" right="10" bottom="10"/>
+    </padding>
+
+    <center>
+        <TableView fx:id="leadTableView" onMouseClicked="#leadSelected">
+            <columns>
+                <TableColumn text="First Name" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Last Name" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Contact Number" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="contactNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Source" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="source"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Status" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="status"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Notes" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="notes"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

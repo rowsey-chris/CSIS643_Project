@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<?import javafx.scene.layout.StackPane?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.csis643_rowsey_project.controller.HomePageController">
+
+    <top>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Users" onSelectionChanged="#showUsers">
+                <content>
+                    <StackPane fx:id="contentContainer"/>
+                </content>
+            </Tab>
+<!--            <Tab text="Tags" onSelectionChanged="#showTags">-->
+<!--                <content>-->
+<!--                    <StackPane fx:id="tagsStackPane" />-->
+<!--                </content>-->
+<!--            </Tab>-->
+            <Tab text="Leads" onSelectionChanged="#showLeads">
+                <content>
+                    <StackPane fx:id="leadsStackPane" />
+                </content>
+            </Tab>
+        </TabPane>
+    </top>
+
+
+
+</BorderPane>
