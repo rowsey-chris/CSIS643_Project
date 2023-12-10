@@ -15,7 +15,7 @@
                 <Insets top="10" bottom="10"/>
             </padding>
             <Button text="Create Lead" onAction="#createLead"/>
-            <Button text="Update Lead" onAction="#openUpdateLeadForm"/>
+            <Button text="Update Lead" onAction="#openUpdateLeadForm" fx:id="updateLeadButton" disable="true"/>
         </HBox>
     </top>
 

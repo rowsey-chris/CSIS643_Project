@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -56,11 +57,20 @@ public class LeadController {
     private ObservableList<Lead> leadList = FXCollections.observableArrayList();
 
     @FXML
+    private Button updateLeadButton;
+
+    @FXML
     private void initialize() {
         // Initialize the leadTableView with existing leads (if any)
         if (leadTableView != null) {
             leadTableView.setItems(leadService.getLeadList());
         }
+        // Add a listener to the selection model of the table
+        assert leadTableView != null;
+        leadTableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            // Enable/disable the "Update Lead" button based on whether an item is selected
+            updateLeadButton.setDisable(newValue == null);
+        });
     }
 
     @FXML
