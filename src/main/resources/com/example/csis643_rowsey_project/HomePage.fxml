@@ -16,11 +16,6 @@
                     <StackPane fx:id="contentContainer"/>
                 </content>
             </Tab>
-<!--            <Tab text="Tags" onSelectionChanged="#showTags">-->
-<!--                <content>-->
-<!--                    <StackPane fx:id="tagsStackPane" />-->
-<!--                </content>-->
-<!--            </Tab>-->
             <Tab text="Leads" onSelectionChanged="#showLeads">
                 <content>
                     <StackPane fx:id="leadsStackPane" />

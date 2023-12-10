@@ -27,6 +27,6 @@
     <TextField fx:id="leadNotesField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <!-- Update Button -->
-    <Button text="Update Lead" onAction="#updateLead" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <Button text="Update Lead" onAction="#updateLead" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"/>
 
 </GridPane>

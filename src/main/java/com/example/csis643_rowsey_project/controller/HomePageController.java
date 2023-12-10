@@ -30,11 +30,6 @@ public class HomePageController {
     }
 
     @FXML
-    private void showTags() {
-        loadContent("TagView.fxml", tagsStackPane);
-    }
-
-    @FXML
     private void showLeads() {
         loadContent("LeadView.fxml", leadsStackPane);
     }

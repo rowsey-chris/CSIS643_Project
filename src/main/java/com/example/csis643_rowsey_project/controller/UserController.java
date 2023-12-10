@@ -6,23 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class UserController {
-
-    @FXML
-    private ListView<String> userListView;
-
-    @FXML
-    private TextField usernameField;
-
-    @FXML
-    private TextField passwordField;
 
     @FXML
     private TableView<User> userTableView;
@@ -48,8 +37,6 @@ public class UserController {
         stage.setScene(new Scene(root));
         stage.showAndWait();
 
-        // You can perform additional actions after the form is closed
-        // For example, refresh initialize with updated data
         initialize();
     }
 

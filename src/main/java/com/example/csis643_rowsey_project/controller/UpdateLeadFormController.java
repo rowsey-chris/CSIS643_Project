@@ -3,7 +3,6 @@ package com.example.csis643_rowsey_project.controller;
 import com.example.csis643_rowsey_project.model.Lead;
 import com.example.csis643_rowsey_project.service.LeadService;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,8 +20,6 @@ public class UpdateLeadFormController {
     private TextField leadNotesField;
     @FXML
     private TextField leadContactInfoField;
-    @FXML
-    private TableView<Lead> leadTableView;
     private LeadService leadService;
 
     private Lead selectedLead;

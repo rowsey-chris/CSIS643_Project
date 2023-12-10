@@ -10,7 +10,6 @@ public class UserService {
 
     public UserService() {
         this.userList = FXCollections.observableArrayList();
-        // Add any initialization or default users if needed
     }
 
     public ObservableList<User> getUserList() {

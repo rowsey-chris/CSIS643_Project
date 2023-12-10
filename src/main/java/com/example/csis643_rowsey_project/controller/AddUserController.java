@@ -18,7 +18,6 @@ public class AddUserController {
     private UserService userService;
 
     // Inject the UserService through a constructor or a setter method
-    // This can be done using Dependency Injection frameworks in larger applications
     public void setUserService(UserService userService) {
         this.userService = userService;
     }

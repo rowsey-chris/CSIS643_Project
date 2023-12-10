@@ -10,7 +10,6 @@ public class LeadService {
 
     public LeadService() {
         this.leadList = FXCollections.observableArrayList();
-        // Add any initialization or default leads if needed
     }
 
     public ObservableList<Lead> getLeadList() {
