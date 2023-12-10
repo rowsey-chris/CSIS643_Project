@@ -16,6 +16,10 @@
             </padding>
             <Button text="Create Lead" onAction="#createLead"/>
             <Button text="Update Lead" onAction="#openUpdateLeadForm" fx:id="updateLeadButton" disable="true"/>
+            <HBox spacing="10">
+                <Label text="Search:"/>
+                <TextField fx:id="searchField" promptText="Enter search term"/>
+            </HBox>
         </HBox>
     </top>
 

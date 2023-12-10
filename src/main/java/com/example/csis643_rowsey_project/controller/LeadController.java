@@ -4,12 +4,14 @@ import com.example.csis643_rowsey_project.model.Lead;
 import com.example.csis643_rowsey_project.service.LeadService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,7 +31,13 @@ public class LeadController {
     private Button updateLeadButton;
 
     @FXML
+    private TextField searchField;
+
+    private FilteredList<Lead> filteredLeads;
+
+    @FXML
     private void initialize() {
+        filteredLeads = new FilteredList<>(leadList, p -> true);
         // Initialize the leadTableView with existing leads (if any)
         if (leadTableView != null) {
             leadTableView.setItems(leadService.getLeadList());
@@ -40,6 +48,28 @@ public class LeadController {
             // Enable/disable the "Update Lead" button based on whether an item is selected
             updateLeadButton.setDisable(newValue == null);
         });
+
+        // Bind the search field to the predicate of the filteredLeads
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredLeads.setPredicate(lead -> {
+                // If the search field is empty, show all leads
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Check if the lead contains the search term
+                String lowerCaseFilter = newValue.toLowerCase();
+                return lead.getFirstName().toLowerCase().contains(lowerCaseFilter)
+                        || lead.getLastName().toLowerCase().contains(lowerCaseFilter)
+                        || lead.getContactNumber().toLowerCase().contains(lowerCaseFilter)
+                        || lead.getSource().toLowerCase().contains(lowerCaseFilter)
+                        || lead.getStatus().toLowerCase().contains(lowerCaseFilter)
+                        || lead.getNotes().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+
+        // Bind the filteredLeads to the table
+        leadTableView.setItems(filteredLeads);
     }
 
     @FXML
@@ -60,6 +90,7 @@ public class LeadController {
 
             AddLeadFormController controller = loader.getController();
             controller.setLeadService(leadService);
+            controller.setLeadController(this);
             controller.setStage(new Stage());
 
             Stage stage = new Stage();
@@ -93,6 +124,10 @@ public class LeadController {
         // Show the update form
         updateStage.show();
 
+    }
 
+    public void addLead(String firstName, String lastName, String contactInfo, String source, String status, String notes) {
+        Lead newLead = new Lead(firstName, lastName, contactInfo, source, status, notes);
+        leadList.add(newLead);
     }
 }

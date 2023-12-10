@@ -27,6 +27,11 @@ public class AddLeadFormController {
 
     private LeadService leadService;
 
+    private LeadController leadController;
+
+    public void setLeadController(LeadController leadController) {
+        this.leadController = leadController;
+    }
 
     private Stage stage;
 
@@ -57,6 +62,9 @@ public class AddLeadFormController {
 
         // Call the createLead method in the LeadController
         leadService.addLead(firstName, lastName, contactInfo, source, status, notes);
+
+        // Notify LeadController to add the new lead
+        leadController.addLead(firstName, lastName, contactInfo, source, status, notes);
 
         Stage stage = (Stage) firstNameField.getScene().getWindow();
 
